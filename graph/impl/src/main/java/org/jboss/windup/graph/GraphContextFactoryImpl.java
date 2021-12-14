@@ -113,4 +113,9 @@ public class GraphContextFactoryImpl implements GraphContextFactory
             LOG.log(Level.WARNING, "Failed at closing previously opened graphs due to: " + t.getMessage(), t);
         }
     }
+
+    @Override
+    public void clearAll() {
+        graphMap.keySet().stream().map(graphMap::get).forEach(GraphContext::clear);
+    }
 }

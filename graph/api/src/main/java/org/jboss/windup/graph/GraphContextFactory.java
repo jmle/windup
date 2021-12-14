@@ -39,4 +39,9 @@ public interface GraphContextFactory
      * cleanup to insure that all resources have been successfully destroyed.
      */
     void closeAll();
+
+    /**
+     * Drops all graphs and their data. Also closes the graphs.
+     */
+    void clearAll();
 }

@@ -106,6 +106,8 @@ public class GraphContextFactoryImpl implements GraphContextFactory
                 GraphContext graphContext = graphMap.get(graphName);
                 graphContext.close();
                 LOG.info("Closed graph: " + graphName);
+
+                graphMap.remove(graphName);
             }
         }
         catch (Throwable t)

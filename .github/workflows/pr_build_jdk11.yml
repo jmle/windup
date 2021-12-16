@@ -1,4 +1,4 @@
-name: Windup CI PR
+name: Windup PR builder for JDK11
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  windup-pr-builder-build-11-test-8:
+  windup-pr-builder-jdk11:
 
     runs-on: ubuntu-latest
 
@@ -25,4 +25,4 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2  
     - name: Build on JDK 11
-      run: mvn -B clean install
+      run: mvn -B clean install -DskipTests && cd tests && mvn test
